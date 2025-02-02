@@ -82,10 +82,8 @@ export default function CarouselProduct() {
         </CarouselContent>
 
         {/* Navigation Buttons */}
-        <div className="absolute inset-0 flex items-center justify-between pointer-events-none">
-          <CarouselPrevious className="pointer-events-auto bg-white/80 hover:bg-white/90 rounded-full p-2 shadow-lg transform -translate-x-4" />
-          <CarouselNext className="pointer-events-auto bg-white/80 hover:bg-white/90 rounded-full p-2 shadow-lg transform translate-x-4" />
-        </div>
+        <CarouselPrevious />
+        <CarouselNext />
       </Carousel>
     </div>
   );
