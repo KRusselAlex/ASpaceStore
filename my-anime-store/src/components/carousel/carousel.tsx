@@ -12,7 +12,7 @@ import {
 
 export default function CarouselProduct() {
   return (
-    <Carousel className="w-full max-w-5xl">
+    <Carousel className="w-full max-w-4xl">
       {/* Adjust max-w to fit 4 cards */}
       <CarouselContent>
         {Array.from({ length: 12 }).map((_, index) => (
