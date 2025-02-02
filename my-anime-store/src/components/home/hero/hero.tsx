@@ -20,7 +20,7 @@ export default function HeroSection() {
         <div className="flex justify-center">
           <CustomButton
             icon={<ChevronRight size={20} />}
-            className="bg-fourthly text-textColor hover:bg-white"
+            className="bg-fourthly text-textColor hover:bg-primary hover:text-white"
           >
             {content.buttonText}
           </CustomButton>
