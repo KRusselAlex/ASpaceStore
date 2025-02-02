@@ -36,7 +36,6 @@ const dresses = [
     title: "Classic Black Dress",
     price: "$129.99",
   },
-  // Add more dresses as needed
 ];
 
 export default function CarouselProduct() {
@@ -81,9 +80,11 @@ export default function CarouselProduct() {
           ))}
         </CarouselContent>
 
-        {/* Navigation Buttons */}
-        <CarouselPrevious />
-        <CarouselNext />
+        {/* Navigation Buttons (Hidden on Mobile) */}
+        <div className="hidden sm:flex absolute inset-0 items-center justify-between pointer-events-none">
+          <CarouselPrevious className="pointer-events-auto bg-white/80 hover:bg-white/90 rounded-full p-2 shadow-lg -translate-x-4" />
+          <CarouselNext className="pointer-events-auto bg-white/80 hover:bg-white/90 rounded-full p-2 shadow-lg translate-x-4" />
+        </div>
       </Carousel>
     </div>
   );
