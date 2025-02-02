@@ -33,9 +33,9 @@ export default function Navbar() {
   return (
     <header>
       <nav
-        className={`fixed z-40 w-full grid grid-cols-3 py-6 border-b border-gray-200 items-center px-1 md:px-16 transition-all duration-300 ${
+        className={`fixed z-40 w-full grid grid-cols-3 py-6 border-b border-gray-200 hover:bg-fourthly hover:text-textColor items-center px-1 md:px-16 transition-all duration-300 ${
           isScrolled
-            ? "bg-white text-textColor shadow-md"
+            ? "bg-fourthly text-textColor shadow-md"
             : "bg-transparent text-white"
         }`}
       >
