@@ -1,5 +1,6 @@
 import Footer from "@/components/footer/footer";
 import HeroSection from "@/components/home/hero/hero";
+import NewProductSection from "@/components/home/newProduct/newProduct";
 import ProductSection from "@/components/home/product/product";
 import Navbar from "@/components/navbar/navbar";
 
@@ -18,6 +19,9 @@ export default function Home() {
         <HeroSection />
       </div>
       <ProductSection />
+      <NewProductSection />
+      <ProductSection />
+
       <Footer />
     </div>
   );

@@ -11,7 +11,7 @@ const DressCard: React.FC<DressCardProps> = ({ imageUrl, title, price }) => {
   return (
     <div className="relative p-1 group">
       <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300">
-        <div className="relative w-full h-72">
+        <div className="relative w-full h-80">
           <Image
             src={imageUrl}
             alt={title}
