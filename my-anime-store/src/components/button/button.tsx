@@ -22,10 +22,7 @@ export default function CustomButton({
         className
       )}
     >
-      {/* Text */}
-      <span className="relative z-10 transition-all duration-300 group-hover:translate-x-0">
-        {children}
-      </span>
+      <span className="relative z-10 ">{children}</span>
 
       <span className="ml-2 relative z-10 transition-transform duration-300 group-hover:translate-x-3">
         {icon}

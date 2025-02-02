@@ -33,7 +33,7 @@ export default function SelectList({ header, items }: SelectListProps) {
           />
         </div>
 
-        <ul className="hidden md:block mt-2 space-y-2">
+        <ul className="hidden md:block mt-2 space-y-2 p-2">
           {items.map((item, index) => (
             <li key={index}>
               <Link href={item.href} className="block p-2 hover:text-thirdly ">
@@ -44,7 +44,7 @@ export default function SelectList({ header, items }: SelectListProps) {
         </ul>
       </div>
 
-      <div className="md:hidden">
+      <div className="md:hidden px-3">
         {isOpen && (
           <ul className=" mt-2 space-y-2">
             {items.map((item, index) => (
