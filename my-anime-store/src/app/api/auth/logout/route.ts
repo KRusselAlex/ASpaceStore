@@ -1,7 +1,6 @@
-import { connectToDatabase } from '@/lib/dbConnect';
 import { sendResponse } from '@/lib/apiResponse';
 import { verifyToken } from '@/lib/jwtUtils'; // A function that verifies JWT token
-import { decode } from 'jsonwebtoken';
+
 
 export async function POST(request: Request) {
     try {
@@ -19,18 +18,7 @@ export async function POST(request: Request) {
             return sendResponse(401, false, 'Invalid token');
         }
 
-        // Connect to the database
-        const { db } = await connectToDatabase();
-
-        // Add the token to the blacklist collection
-        const result = await db.collection('blacklistedTokens').insertOne({
-            token,
-            blacklistedAt: new Date(),
-            userId: decoded.userId, // Store the user ID for reference
-        });
-
-        // Return success
-        return sendResponse(200, true, 'Logout successful and token invalidated', result);
+        return sendResponse(200, true, 'Logout successful and token invalidated');
     } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'Failed to logout';
         return sendResponse(500, false, errorMessage);

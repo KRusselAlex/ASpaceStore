@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyToken } from '@/lib/jwtUtils';
-import { connectToDatabase } from '@/lib/dbConnect';
 import { sendResponse } from '@/lib/apiResponse';
 
 const publicRoutes = ['/api/auth/login', '/api/auth/register'];
@@ -34,18 +33,6 @@ export async function authMiddleware(request: NextRequest) {
             );
         }
 
-        // Check if the token is blacklisted
-        const { db } = await connectToDatabase();
-        const blacklistedToken = await db.collection('blacklistedTokens').findOne({ token });
-
-        if (blacklistedToken) {
-            return sendResponse(401, false, 'Unauthorized: Token is blacklisted', null, {
-                code: 401,
-                details: 'Please login again',
-            });
-        }
-
-        // Attach user data to request headers (for the next middleware)
         request.headers.set('userId', decoded.userId);
         return NextResponse.next();
         

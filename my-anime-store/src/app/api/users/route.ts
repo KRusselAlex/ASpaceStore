@@ -99,7 +99,9 @@ export async function GET(request: Request) {
         }
 
         // Remove sensitive data (password) before sending the response
-        const { password, ...userData } = user;
+        const userData = Object.fromEntries(
+            Object.entries(user).filter(([key]) => key !== 'password')
+        );
 
         return sendResponse(200, true, 'User profile fetched successfully', userData);
     } catch (error) {

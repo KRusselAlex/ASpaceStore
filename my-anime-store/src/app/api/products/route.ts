@@ -4,11 +4,30 @@ import { productSchema } from '@/lib/validationSchemas';
 import { formatZodErrors } from '@/lib/formatZodErrors';
 import { ProductTypes } from '@/types/product';
 
-export async function GET() {
+export async function GET(request: Request) {
     try {
         const { db } = await connectToDatabase();
-        const products = await db.collection('products').find({}).toArray();
-        return sendResponse(200, true, 'Products fetched successfully', products);
+        const url = new URL(request.url);
+        const page = parseInt(url.searchParams.get('page') || '1', 10);
+        const limit = parseInt(url.searchParams.get('limit') || '10', 10);
+        const skip = (page - 1) * limit;
+
+        // Fetch products with pagination
+        const products = await db.collection('products')
+            .find({})
+            .skip(skip)
+            .limit(limit)
+            .toArray();
+
+        // Get total count for pagination metadata
+        const totalCount = await db.collection('products').countDocuments();
+
+        return sendResponse(200, true, 'Products fetched successfully', {
+            products,
+            currentPage: page,
+            totalPages: Math.ceil(totalCount / limit),
+            totalItems: totalCount,
+        });
     } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'Failed to fetch products';
         return sendResponse(500, false, errorMessage, null, {
@@ -17,6 +36,7 @@ export async function GET() {
         });
     }
 }
+
 
 export async function POST(request: Request) {
     try {
