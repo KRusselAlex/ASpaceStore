@@ -6,6 +6,7 @@ import {
   FaPinterestP,
   FaTwitter,
 } from "react-icons/fa";
+
 import { SiTiktok } from "react-icons/si";
 
 export default function Footer() {
@@ -33,7 +34,7 @@ export default function Footer() {
   return (
     <footer className="pt-10 pb-5  px-2 md:px-16 bg-[#151515] text-white">
       <div className="">
-        <div className="px-4  sm:grid md:grid-cols-4 sm:grid-cols-2 mx-auto">
+        <div className="px-4  sm:grid md:grid-cols-2 lg:grid-cols-4 sm:grid-cols-2 mx-auto">
           <div className="p-4">
             <h3 className=" text-3xl  Sprite_Graffiti ">A&apos;Space</h3>
           </div>

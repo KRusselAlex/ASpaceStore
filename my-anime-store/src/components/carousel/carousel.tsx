@@ -81,7 +81,7 @@ export default function CarouselProduct() {
         </CarouselContent>
 
         {/* Navigation Buttons (Hidden on Mobile) */}
-        <div className="hidden sm:flex absolute inset-0 items-center justify-between pointer-events-none">
+        <div className="hidden lg:flex absolute inset-0 items-center justify-between pointer-events-none">
           <CarouselPrevious className="pointer-events-auto bg-white/80 hover:bg-white/90 rounded-full p-2 shadow-lg -translate-x-4" />
           <CarouselNext className="pointer-events-auto bg-white/80 hover:bg-white/90 rounded-full p-2 shadow-lg translate-x-4" />
         </div>

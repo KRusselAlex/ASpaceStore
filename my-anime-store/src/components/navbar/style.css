@@ -1,0 +1,19 @@
+.navbar:hover {
+    background-color: #F2F2F2;
+    color: #262626;
+}
+
+.navbar:hover .logo {
+    color: #A63860;
+
+}
+
+.navbarScroll {
+    background-color: #F2F2F2;
+    color: #262626;
+}
+
+.navbarScroll .logo {
+
+    color: #A63860;
+}

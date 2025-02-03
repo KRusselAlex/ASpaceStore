@@ -53,9 +53,7 @@ export default function CarouselSection({
                     backgroundPosition: "center",
                     height: "100vh",
                   }}
-                >
-                
-                </div>
+                ></div>
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -63,13 +61,13 @@ export default function CarouselSection({
       </Carousel>
 
       {/* Dots Navigation */}
-      <div className="absolute bottom-3 flex gap-2 justify-center bg-gray-300 p-1 rounded-full">
+      <div className="absolute bottom-3 flex gap-2 justify-center bg-gray-300 p-0.5 rounded-full">
         {images.map((_, i) => (
           <button
             key={i}
             onClick={() => goToSlide(i)}
-            className={`h-3 w-3 rounded-full transition-colors ${
-              index === i ? "bg-[#F8B332]" : "bg-white"
+            className={`h-3 w-3 rounded-full transition-colors  ${
+              index === i ? "bg-primary" : "bg-thirdly"
             }`}
           ></button>
         ))}

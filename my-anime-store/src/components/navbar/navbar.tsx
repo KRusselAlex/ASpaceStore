@@ -3,12 +3,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X, Search, ShoppingCart } from "lucide-react";
+import "./style.css";
 
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Shop", href: "/about" },
   { name: "Faqs", href: "/faqs" },
-  { name: "Contact", href: "/contact" },
+  { name: "Contact Us", href: "/contact" },
   { name: "Login", href: "/login" },
 ];
 
@@ -33,10 +34,8 @@ export default function Navbar() {
   return (
     <header>
       <nav
-        className={`fixed z-40 w-full grid grid-cols-3 py-6 border-b border-gray-200 hover:bg-fourthly hover:text-textColor items-center px-1 md:px-16 ${
-          isScrolled
-            ? "bg-fourthly text-textColor shadow-md"
-            : "bg-transparent text-white"
+        className={`navbar fixed z-40 w-full grid grid-cols-3 py-6 border-b border-gray-200  items-center px-1 md:px-16 ${
+          isScrolled ? "navbarScroll  shadow-md" : "bg-transparent text-white"
         }`}
       >
         {/* Mobile Menu */}
@@ -45,7 +44,7 @@ export default function Navbar() {
             <Menu className="w-8 h-8" />
           </button>
           <div
-            className={`fixed top-0 right-0 h-full z-40 w-full bg-white shadow-lg transform transition-transform duration-300 ${
+            className={`fixed top-0 right-0 h-full z-40 w-full bg-fourthly shadow-lg transform transition-transform duration-300 ${
               isOpen ? "translate-x-0" : "translate-x-full"
             }`}
           >
@@ -86,8 +85,8 @@ export default function Navbar() {
                     href={item.href}
                     className={`block transition-colors font-medium ${
                       pathname === item.href
-                        ? "text-textColor"
-                        : "hover:text-thirdly"
+                        ? "text-primary"
+                        : "hover:text-primary"
                     }`}
                   >
                     {item.name}
@@ -100,7 +99,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href={"/"}
-          className="flex justify-center Sprite_Graffiti text-5xl cursor-pointer"
+          className="logo flex justify-center Sprite_Graffiti text-5xl cursor-pointer"
         >
           A&apos;Space
         </Link>

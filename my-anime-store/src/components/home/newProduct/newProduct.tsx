@@ -11,6 +11,7 @@ const content = {
 export default function NewProductSection() {
   return (
     <div className="h-full">
+      
       <CarouselSection images={images}>
         <div className="flex flex-col gap-5">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center">

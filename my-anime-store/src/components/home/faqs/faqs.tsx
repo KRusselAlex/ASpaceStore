@@ -8,8 +8,7 @@ import {
   AccordionContent,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import Navbar from "@/components/navbar/navbar";
-import Footer from "@/components/footer/footer";
+
 
 const categories = ["General", "Account", "Billing"] as const;
 type Category = (typeof categories)[number];
@@ -100,8 +99,7 @@ export default function FAQsPage() {
 
   return (
     <div>
-      <div className="bg-secondary text-white" style={{ height: "50vh" }}>
-        <Navbar />
+      <div className="bg-thirdly text-white" style={{ height: "50vh" }}>
         <div className="h-12"></div>
         <div className="flex flex-col h-full w-full justify-center  p-2 items-center">
           <h1 className=" text-xl md:text-4xl font-bold text-center mb-4">
@@ -143,8 +141,6 @@ export default function FAQsPage() {
           </Accordion>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import ScrollUpButton from "@/components/scrollUp/scrollUp";
 
 import "./globals.css";
+import WhatsappWidget from "@/components/whatsapp/whatsappWidjet";
 
 export const metadata: Metadata = {
   title: "A-space",
@@ -14,7 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <div>{children}
+          <WhatsappWidget />
+          <ScrollUpButton />
+        </div>
+      </body>
     </html>
   );
 }

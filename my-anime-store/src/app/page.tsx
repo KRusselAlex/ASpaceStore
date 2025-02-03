@@ -3,6 +3,7 @@ import HeroSection from "@/components/home/hero/hero";
 import NewProductSection from "@/components/home/newProduct/newProduct";
 import ProductSection from "@/components/home/product/product";
 import Navbar from "@/components/navbar/navbar";
+// import WhatsappWidjet from "@/components/whatsapp/whatsappWidjet";
 
 export default function Home() {
   return (
