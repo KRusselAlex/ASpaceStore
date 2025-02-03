@@ -5,7 +5,7 @@ interface CardServiceProps {
   icon: React.ReactNode;
   title: string;
   description: string;
-  iconColor?: string; // Optional prop for icon color
+  iconColor?: string; 
 }
 
 const CardServices: React.FC<CardServiceProps> = ({
