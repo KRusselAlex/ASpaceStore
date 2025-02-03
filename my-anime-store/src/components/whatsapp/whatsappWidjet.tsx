@@ -6,7 +6,7 @@ export default function WhatsappWidget() {
       href="https://wa.me/+2290146002815"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-16 flex items-center gap-2  text-white   shadow-lg transition-transform transform hover:scale-105"
+      className="fixed bottom-6 right-16 flex items-center gap-2  transition-transform transform hover:scale-105"
     >
       <svg
         height="50px"
