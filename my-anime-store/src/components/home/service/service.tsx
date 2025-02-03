@@ -40,7 +40,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="bg-primary py-20 px-4 sm:px-16">
+    <section className="bg-primary py-20 px-2 sm:px-16">
       <div className="flex flex-col lg:flex-row gap-16 mx-auto text-center">
         <div className="lg:w-1/3  text-white text-center lg:text-left">
           <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6">
@@ -55,7 +55,7 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8">
+        <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2  gap-8">
           {services.map((service, index) => (
             <CardServices
               key={index}

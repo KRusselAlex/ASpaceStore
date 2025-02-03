@@ -15,7 +15,7 @@ const CardServices: React.FC<CardServiceProps> = ({
   iconColor = "text-green-500",
 }) => {
   return (
-    <div className="cardSection bg-fourthly flex flex-col text-textColor justify-center md:justify-start gap-2 p-6 rounded-xl shadow-lg transform transition-all hover:scale-105 hover:shadow-2xl">
+    <div className="cardSection h-64 bg-fourthly flex flex-col text-textColor justify-center  gap-2 p-6 rounded-xl shadow-lg transform transition-all md:hover:scale-105 hover:shadow-2xl">
       <div
         className={`${iconColor} mb-4 w-full flex justify-center md:justify-start`}
       >
