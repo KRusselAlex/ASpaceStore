@@ -65,11 +65,11 @@ export default function CarouselProduct() {
           loop: true,
         }}
       >
-        <CarouselContent className="px-3">
+        <CarouselContent className="">
           {dresses.map((dress, index) => (
             <CarouselItem
               key={index}
-              className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/4 px-1"
+              className="basis-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/4 px-0 md:px-1"
             >
               <DressCard
                 imageUrl={dress.imageUrl}
@@ -81,9 +81,9 @@ export default function CarouselProduct() {
         </CarouselContent>
 
         {/* Navigation Buttons (Hidden on Mobile) */}
-        <div className="hidden lg:flex absolute inset-0 items-center justify-between pointer-events-none">
-          <CarouselPrevious className="pointer-events-auto bg-white/80 hover:bg-white/90 rounded-full p-2 shadow-lg -translate-x-4" />
-          <CarouselNext className="pointer-events-auto bg-white/80 hover:bg-white/90 rounded-full p-2 shadow-lg translate-x-4" />
+        <div className="hidden lg:block ">
+          <CarouselPrevious />
+          <CarouselNext />
         </div>
       </Carousel>
     </div>

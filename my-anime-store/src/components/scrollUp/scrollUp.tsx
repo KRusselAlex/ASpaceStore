@@ -29,11 +29,11 @@ export default function ScrollUpButton() {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-6 right-6 flex items-center justify-center w-12 h-12 bg-primary text-white rounded-full shadow-lg transition-all duration-300 hover:bg-primary hover:scale-110 ${
+      className={`fixed bottom-6 right-6 flex items-center justify-center w-8 h-8 bg-primary text-white rounded-full shadow-lg transition-all duration-300 hover:bg-primary hover:scale-110 ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
-      <FaArrowUp size={24} />
+      <FaArrowUp size={20} />
     </button>
   );
 }

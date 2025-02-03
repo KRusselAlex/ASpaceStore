@@ -7,7 +7,7 @@ import ContactForm from "@/components/contact/contact";
 export default function Contact() {
   return (
     <div>
-      <div className="bg-secondary text-white" style={{ height: "50vh" }}>
+      <div className="bg-primary text-white" style={{ height: "50vh" }}>
         <Navbar />
         <div className="h-12"></div>
         <div className="flex flex-col h-full w-full justify-center  p-2 items-center">

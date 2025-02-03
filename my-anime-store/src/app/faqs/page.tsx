@@ -100,7 +100,7 @@ export default function FAQsPage() {
 
   return (
     <div>
-      <div className="bg-secondary text-white" style={{ height: "50vh" }}>
+      <div className="bg-primary text-white" style={{ height: "50vh" }}>
         <Navbar />
         <div className="h-12"></div>
         <div className="flex flex-col h-full w-full justify-center  p-2 items-center">
@@ -120,11 +120,15 @@ export default function FAQsPage() {
                 key={category}
                 variant={selectedCategory === category ? "default" : "outline"}
                 onClick={() => setSelectedCategory(category)}
-                className={
+                className={`${
                   selectedCategory === category
-                    ? "bg-primary font-medium text-white" // Apply these classes when selected
-                    : "bg-fourthly font-medium"
-                }
+                    ? "bg-primary text-white"
+                    : "bg-fourthly"
+                } font-medium hover:bg-thirdly hover:text-white ${
+                  selectedCategory === category
+                    ? "hover:bg-primary"
+                    : "hover:bg-thirdly"
+                }`}
               >
                 {category}
               </Button>

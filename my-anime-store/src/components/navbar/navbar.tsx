@@ -34,13 +34,13 @@ export default function Navbar() {
   return (
     <header>
       <nav
-        className={`navbar fixed z-40 w-full grid grid-cols-3 py-6 border-b border-gray-200  items-center px-1 md:px-16 ${
+        className={`navbar fixed z-40 w-full grid grid-cols-3 py-6 border-b border-gray-200  items-center px-2 md:px-16 ${
           isScrolled ? "navbarScroll  shadow-md" : "bg-transparent text-white"
         }`}
       >
         {/* Mobile Menu */}
         <div className="lg:hidden">
-          <button className="pl-3" onClick={() => setIsOpen(!isOpen)}>
+          <button className="pl-2" onClick={() => setIsOpen(!isOpen)}>
             <Menu className="w-8 h-8" />
           </button>
           <div
@@ -62,8 +62,8 @@ export default function Navbar() {
                     onClick={() => setIsOpen(false)}
                     className={`block px-3 py-2 transition-colors ${
                       pathname === item.href
-                        ? "text-thirdly"
-                        : "text-textColor hover:text-thirdly"
+                        ? "text-primary"
+                        : "text-textColor hover:text-primary"
                     }`}
                   >
                     {item.name}
@@ -84,8 +84,12 @@ export default function Navbar() {
                   <Link
                     href={item.href}
                     className={`block transition-colors font-medium ${
-                      pathname === item.href
-                        ? "text-primary"
+                      isScrolled
+                        ? pathname === item.href
+                          ? "text-primary"
+                          : "hover:text-primary"
+                        : pathname === item.href
+                        ? "text-textColor"
                         : "hover:text-primary"
                     }`}
                   >

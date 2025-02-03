@@ -36,7 +36,7 @@ export default function SelectList({ header, items }: SelectListProps) {
         <ul className="hidden md:block mt-2 space-y-2 p-2">
           {items.map((item, index) => (
             <li key={index}>
-              <Link href={item.href} className="block p-2 hover:text-thirdly ">
+              <Link href={item.href} className="block p-2 hover:text-primary ">
                 {item.label}
               </Link>
             </li>

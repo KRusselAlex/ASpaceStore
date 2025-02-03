@@ -1,20 +1,19 @@
-
-
 export default function WhatsappWidget() {
   return (
     <a
       href="https://wa.me/+2290146002815"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-16 flex items-center gap-2  transition-transform transform hover:scale-105"
+      className="fixed bottom-6 right-12 flex items-center gap-3  px-4  ransition-transform transform hover:scale-105"
     >
+      <span className="hidden md:flex justify-center text-base font-semibold text-white bg-primary rounded-lg p-2">
+        Chat with us
+      </span>
       <svg
-        height="50px"
-        width="50px"
-        version="1.1"
-        id="Layer_1"
-        xmlns="http://www.w3.org/2000/svg"
+        height="38px"
+        width="38px"
         viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <path
           fill="#EDEDED"

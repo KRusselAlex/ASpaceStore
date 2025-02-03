@@ -31,7 +31,7 @@ export default function CarouselSection({
   };
 
   return (
-    <div className="relative w-full h-screen flex items-center justify-center">
+    <div className="relative w-full h-screen flex items-center justify-center" >
       <Carousel
         className="absolute inset-0 w-full h-full"
         opts={{ loop: false }}
@@ -60,7 +60,6 @@ export default function CarouselSection({
         </div>
       </Carousel>
 
-      {/* Dots Navigation */}
       <div className="absolute bottom-3 flex gap-2 justify-center bg-gray-300 p-0.5 rounded-full">
         {images.map((_, i) => (
           <button

@@ -32,21 +32,19 @@ export default function Footer() {
     { label: "contact@company.com", href: "mailto:contact@company.com" },
   ];
   return (
-    <footer className="pt-10 pb-5  px-2 md:px-16 bg-[#151515] text-white">
-      <div className="">
-        <div className="px-4  sm:grid md:grid-cols-2 lg:grid-cols-4 sm:grid-cols-2 mx-auto">
-          <div className="p-4">
-            <h3 className=" text-3xl  Sprite_Graffiti ">A&apos;Space</h3>
-          </div>
-          <div className="p-4">
-            <SelectList header="Custom Service" items={customerServiceItems} />
-          </div>
-          <div className="p-4">
-            <SelectList header="Support" items={supportItems} />
-          </div>
-          <div className="p-4">
-            <SelectList header="Quick Links" items={quickLinksItems} />
-          </div>
+    <footer className="pt-10 pb-5   md:px-16 bg-[#151515] text-white">
+      <div className="px-4  sm:grid md:grid-cols-2 lg:grid-cols-4 sm:grid-cols-2 mx-auto">
+        <div className="p-4">
+          <h3 className="text-3xl  Sprite_Graffiti ">A&apos;Space</h3>
+        </div>
+        <div className="p-3 md:p-4">
+          <SelectList header="Custom Service" items={customerServiceItems} />
+        </div>
+        <div className="p-3 md:p-4">
+          <SelectList header="Support" items={supportItems} />
+        </div>
+        <div className="p-3 md:p-4">
+          <SelectList header="Quick Links" items={quickLinksItems} />
         </div>
       </div>
 
