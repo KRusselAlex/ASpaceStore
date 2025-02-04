@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { verifyToken } from '@/lib/jwtUtils';
+import { verifyAccessToken } from '@/lib/jwtUtils';
 import { sendResponse } from '@/lib/apiResponse';
 
 const publicRoutes = ['/api/auth/login', '/api/auth/register'];
@@ -24,7 +24,7 @@ export async function authMiddleware(request: NextRequest) {
     const token = authHeader.replace('Bearer ', '');
 
     try {
-        const decoded = verifyToken(token);
+        const decoded = verifyAccessToken(token);
 
         if (!decoded) {
             return NextResponse.json(

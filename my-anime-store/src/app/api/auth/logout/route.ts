@@ -1,26 +1,35 @@
+import { NextRequest} from 'next/server';
 import { sendResponse } from '@/lib/apiResponse';
-import { verifyToken } from '@/lib/jwtUtils'; // A function that verifies JWT token
 
-
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
     try {
-        // Get the token from the request (can be from Authorization header or cookies)
-        const authHeader = request.headers.get('Authorization');
-        if (!authHeader) {
-            return sendResponse(400, false, 'Authorization header is missing');
+        // Extract the refresh token from cookies
+        const refreshToken = request.cookies.get('refreshToken')?.value;
+
+        if (!refreshToken) {
+            return sendResponse(400, false, 'No refresh token found', null, {
+                code: 400,
+                details: 'User is not logged in.',
+            });
         }
 
-        const token = authHeader.replace('Bearer ', '');
+        const response = sendResponse(200, true, 'Logout successful');
 
-        // Decode and verify the token to check its validity
-        const decoded = verifyToken(token);
-        if (!decoded) {
-            return sendResponse(401, false, 'Invalid token');
-        }
+        response.cookies.set('refreshToken', '', {
+            httpOnly: true,
+            sameSite: 'strict',
+            secure: process.env.NODE_ENV === 'production',
+            expires: new Date(0),
 
-        return sendResponse(200, true, 'Logout successful and token invalidated');
+            path: 'api/auth/refresh', 
+        });
+
+
+        return response;
     } catch (error) {
-        const errorMessage = error instanceof Error ? error.message : 'Failed to logout';
-        return sendResponse(500, false, errorMessage);
+        return sendResponse(500, false, 'Failed to logout', null, {
+            code: 500,
+            details: error instanceof Error ? error.message : 'Unknown error',
+        });
     }
 }

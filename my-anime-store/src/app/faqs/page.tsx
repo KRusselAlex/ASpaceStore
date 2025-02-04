@@ -10,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
+import "./style.css";
 
 const categories = ["General", "Account", "Billing"] as const;
 type Category = (typeof categories)[number];
@@ -100,7 +101,7 @@ export default function FAQsPage() {
 
   return (
     <div>
-      <div className="bg-primary text-white" style={{ height: "50vh" }}>
+      <div className="heroNav bg-primary text-white">
         <Navbar />
         <div className="h-12"></div>
         <div className="flex flex-col h-full w-full justify-center  p-2 items-center">

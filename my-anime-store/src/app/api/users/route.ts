@@ -3,7 +3,7 @@ import { sendResponse } from '@/lib/apiResponse';
 import { userSchema } from '@/lib/validationSchemas';
 import { formatZodErrors } from '@/lib/formatZodErrors';
 import { hashPassword} from '@/lib/authUtils';
-import { generateToken, verifyToken } from '@/lib/jwtUtils';
+import { verifyAccessToken } from '@/lib/jwtUtils';
 import { UserTypes } from '@/types/user';
 import { ObjectId } from 'mongodb';
 
@@ -49,10 +49,8 @@ export async function POST(request: Request) {
 
         const result = await db.collection('users').insertOne(newUser);
 
-        // Generate a JWT token
-        const token = generateToken({ userId: result.insertedId.toString() });
 
-        return sendResponse(201, true, 'User registered successfully', { token });
+        return sendResponse(201, true, 'User registered successfully', result);
     } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'Failed to register user';
         return sendResponse(500, false, errorMessage, null, {
@@ -78,7 +76,7 @@ export async function GET(request: Request) {
         }
 
         const token = authHeader.split(' ')[1];
-        const decodedToken = verifyToken(token);
+        const decodedToken = verifyAccessToken(token);
 
         if (!decodedToken) {
             return sendResponse(401, false, 'Unauthorized', null, {
@@ -114,75 +112,54 @@ export async function GET(request: Request) {
 }
 
 // Update user profile (protected route)
-export async function PUT(request: Request) {
-    try {
-        const { db } = await connectToDatabase();
+// export async function PUT(request: Request) {
+//     try {
+//         const { db } = await connectToDatabase();
+//         const requestBody = await request.json();
 
-        // Extract the token from the Authorization header
-        const authHeader = request.headers.get('Authorization');
-        if (!authHeader || !authHeader.startsWith('Bearer ')) {
-            return sendResponse(401, false, 'Unauthorized', null, {
-                code: 401,
-                details: 'No token provided',
-            });
-        }
+//         // Validate the request body
+//         const validationResult = userSchema.safeParse(requestBody);
+//         if (!validationResult.success) {
+//             const formattedErrors = formatZodErrors(validationResult.error.errors);
+//             return sendResponse(400, false, 'Validation failed', null, {
+//                 code: 400,
+//                 details: formattedErrors,
+//             });
+//         }
 
-        const token = authHeader.split(' ')[1];
-        const decodedToken = verifyToken(token);
+//         const { email, password, name } = validationResult.data;
 
-        if (!decodedToken) {
-            return sendResponse(401, false, 'Unauthorized', null, {
-                code: 401,
-                details: 'Invalid token',
-            });
-        }
+//         // Hash the new password if provided
+//         const hashedPassword = password ? await hashPassword(password) : undefined;
 
-        const userId = decodedToken.userId;
-        const requestBody = await request.json();
+//         // Update the user
+//         const updateData = {
+//             email,
+//             name,
+//             updatedAt: new Date(),
+//             ...(hashedPassword && { password: hashedPassword }),
+//         };
 
-        // Validate the request body
-        const validationResult = userSchema.safeParse(requestBody);
-        if (!validationResult.success) {
-            const formattedErrors = formatZodErrors(validationResult.error.errors);
-            return sendResponse(400, false, 'Validation failed', null, {
-                code: 400,
-                details: formattedErrors,
-            });
-        }
+//         const result = await db
+//             .collection('users')
+//             .updateOne({ _id: new ObjectId(userId) }, { $set: updateData });
 
-        const { email, password, name } = validationResult.data;
+//         if (result.matchedCount === 0) {
+//             return sendResponse(404, false, 'User not found', null, {
+//                 code: 404,
+//                 details: 'User not found',
+//             });
+//         }
 
-        // Hash the new password if provided
-        const hashedPassword = password ? await hashPassword(password) : undefined;
-
-        // Update the user
-        const updateData = {
-            email,
-            name,
-            updatedAt: new Date(),
-            ...(hashedPassword && { password: hashedPassword }),
-        };
-
-        const result = await db
-            .collection('users')
-            .updateOne({ _id: new ObjectId(userId) }, { $set: updateData });
-
-        if (result.matchedCount === 0) {
-            return sendResponse(404, false, 'User not found', null, {
-                code: 404,
-                details: 'User not found',
-            });
-        }
-
-        return sendResponse(200, true, 'User profile updated successfully', null);
-    } catch (error) {
-        const errorMessage = error instanceof Error ? error.message : 'Failed to update user profile';
-        return sendResponse(500, false, errorMessage, null, {
-            code: 500,
-            details: errorMessage,
-        });
-    }
-}
+//         return sendResponse(200, true, 'User profile updated successfully', null);
+//     } catch (error) {
+//         const errorMessage = error instanceof Error ? error.message : 'Failed to update user profile';
+//         return sendResponse(500, false, errorMessage, null, {
+//             code: 500,
+//             details: errorMessage,
+//         });
+//     }
+// }
 
 // Delete user account (protected route)
 export async function DELETE(request: Request) {
@@ -199,7 +176,7 @@ export async function DELETE(request: Request) {
         }
 
         const token = authHeader.split(' ')[1];
-        const decodedToken = verifyToken(token);
+        const decodedToken = verifyAccessToken(token);
 
         if (!decodedToken) {
             return sendResponse(401, false, 'Unauthorized', null, {

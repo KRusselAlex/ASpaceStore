@@ -8,12 +8,14 @@ interface CustomButtonProps {
   children: ReactNode;
   icon?: ReactNode;
   className?: string;
+  type?:"button" | "submit" | "reset" | undefined;
 }
 
 export default function CustomButton({
   children,
   icon,
   className,
+  type="button"
 }: CustomButtonProps) {
   return (
     <Button
@@ -21,6 +23,7 @@ export default function CustomButton({
         "relative flex items-center overflow-hidden transition-all duration-300 group ",
         className
       )}
+      type={type}
     >
       <span className="relative z-10 ">{children}</span>
 

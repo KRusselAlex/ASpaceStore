@@ -3,11 +3,12 @@
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
 import ContactForm from "@/components/contact/contact";
+import "./style.css";
 
 export default function Contact() {
   return (
     <div>
-      <div className="bg-primary text-white" style={{ height: "50vh" }}>
+      <div className="heroNav bg-primary text-white">
         <Navbar />
         <div className="h-12"></div>
         <div className="flex flex-col h-full w-full justify-center  p-2 items-center">

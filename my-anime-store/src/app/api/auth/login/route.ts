@@ -3,17 +3,15 @@ import { sendResponse } from '@/lib/apiResponse';
 import { loginSchema } from '@/lib/validationSchemas';
 import { formatZodErrors } from '@/lib/formatZodErrors';
 import { comparePassword } from '@/lib/authUtils';
-import { generateToken } from '@/lib/jwtUtils';
+import { generateAccessToken, generateRefreshToken } from '@/lib/jwtUtils';
+import { NextRequest, NextResponse } from 'next/server';
 
-
-
-
-export async function POST(request: Request) {
+export async function POST(request: NextRequest) {
     try {
         const { db } = await connectToDatabase();
         const requestBody = await request.json();
 
-        // Validate the request body
+        // Validate request body
         const validationResult = loginSchema.safeParse(requestBody);
         if (!validationResult.success) {
             const formattedErrors = formatZodErrors(validationResult.error.errors);
@@ -25,7 +23,7 @@ export async function POST(request: Request) {
 
         const { email, password } = validationResult.data;
 
-        // Find the user by email
+        // Find user in DB
         const user = await db.collection('users').findOne({ email });
         if (!user) {
             return sendResponse(404, false, 'User not found', null, {
@@ -34,7 +32,7 @@ export async function POST(request: Request) {
             });
         }
 
-        // Compare the password
+        // Verify password
         const isPasswordValid = await comparePassword(password, user.password);
         if (!isPasswordValid) {
             return sendResponse(401, false, 'Invalid credentials', null, {
@@ -43,15 +41,27 @@ export async function POST(request: Request) {
             });
         }
 
-        // Generate a JWT token
-        const token = generateToken({ userId: user._id.toString() });
+        // Generate tokens
+        const accessToken = generateAccessToken({ userId: user._id.toString() });
+        const refreshToken = generateRefreshToken({ userId: user._id.toString() });
 
-        return sendResponse(200, true, 'Login successful', { token });
+       
+        const response = NextResponse.json({ success: true, accessToken });
+
+        response.cookies.set('refreshToken', refreshToken, {
+            httpOnly: true,
+            sameSite: 'strict',
+            maxAge: 604800,
+            secure: process.env.NODE_ENV === 'production',
+            path: 'api/auth/refresh',
+        });
+
+
+        return response;
     } catch (error) {
-        const errorMessage = error instanceof Error ? error.message : 'Failed to login user';
-        return sendResponse(500, false, errorMessage, null, {
+        return sendResponse(500, false, 'Failed to login user', null, {
             code: 500,
-            details: errorMessage,
+            details: error instanceof Error ? error.message : 'Unknown error',
         });
     }
 }
