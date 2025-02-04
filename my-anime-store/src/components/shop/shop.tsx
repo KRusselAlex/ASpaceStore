@@ -172,7 +172,7 @@ export default function ShopSection() {
             className="p-2 shadow-lg hover:shadow-xl transition-all"
           >
             <Link
-              href={process.env.NEXT_PUBLIC_BASE_URL + "/shop/" + product.name}
+              href={process.env.NEXT_PUBLIC_BASE_URL + "/shop/" + product.id}
               className="w-full h-52 flex justify-center items-center overflow-hidden rounded-lg"
             >
               <Image
