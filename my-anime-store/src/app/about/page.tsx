@@ -16,7 +16,7 @@ export default function Contact() {
             About US
           </h1>
           <p className="text-center  mb-8">
-            Any question or remarks? Just write us a message!
+            Discover the Story Behind A&apos;Space D: Where Anime Meets Fashion
           </p>
         </div>
       </div>

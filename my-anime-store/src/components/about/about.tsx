@@ -9,6 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import "./style.css";
+import Link from "next/link";
 
 export default function AboutUs() {
   return (
@@ -45,7 +46,7 @@ export default function AboutUs() {
               alt="Anime Style Dresses"
               width={500}
               height={300}
-              className="rounded-lg shadow-lg mb-6 h-96"
+              className="rounded-lg w-full shadow-lg mb-6 h-96"
             />
             <p className="text-lg text-gray-700 mb-6">
               A&apos;Space D blends the world of fashion with anime culture. We
@@ -125,12 +126,12 @@ export default function AboutUs() {
               Stay updated with the latest trends in anime fashion and
               accessories. Get exclusive deals and more!
             </p>
-            <a
+            <Link
               href="/shop"
               className="bg-white text-primary py-3 px-8 rounded-full font-semibold hover:bg-thirdly hover:text-white transition-all duration-300"
             >
               Explore Our Shop
-            </a>
+            </Link>
           </div>
         </div>
       </div>
