@@ -48,7 +48,7 @@ export default function AboutUs() {
               className="rounded-lg shadow-lg mb-6 h-96"
             />
             <p className="text-lg text-gray-700 mb-6">
-              A'Space D blends the world of fashion with anime culture. We
+              A&apos;Space D blends the world of fashion with anime culture. We
               provide high-quality dresses that match your style, alongside
               accessories that elevate your anime fandom.
             </p>
