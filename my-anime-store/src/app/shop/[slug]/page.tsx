@@ -5,10 +5,14 @@ import Footer from "@/components/footer/footer";
 import "./style.css";
 import ProductView from "@/components/shop/product/product";
 import { AiOutlineArrowLeft } from "react-icons/ai"; // Importing the left arrow icon
-import { useRouter } from "next/navigation"; // Importing useRouter for navigation
+import { useRouter, useParams } from "next/navigation";
 
 export default function Product() {
   const router = useRouter(); // Using the router hook
+  let { slug } = useParams();
+  if (!slug || (Array.isArray(slug) && slug.length === 0)) {
+    slug = "alex";
+  }
 
   return (
     <div>
@@ -30,7 +34,7 @@ export default function Product() {
           </p>
         </div>
       </div>
-      <ProductView />
+      <ProductView productId={Array.isArray(slug) ? slug[0] : slug ?? ""} />
       <Footer />
     </div>
   );

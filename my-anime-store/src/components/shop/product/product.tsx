@@ -4,6 +4,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 
+
+
 const product = {
   id: 1,
   name: "Elegant Dress",
@@ -38,7 +40,11 @@ const relatedProducts = [
   },
 ];
 
-export default function ProductView() {
+interface ProductViewProps {
+  productId: string;
+}
+
+export default function ProductView({ productId }: ProductViewProps) {
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState("");
@@ -63,6 +69,8 @@ export default function ProductView() {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  console.log(productId);
 
   return (
     <div className="px-2 md:px-16 py-6 mx-auto bg-fourthly">
