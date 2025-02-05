@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "A-Space",
     images: [
       {
-        url: "https://a-space.vercel.app/cartana.jpg", // Change this to an actual image URL
+        url: "https://a-space.vercel.app/cartana.jpg", 
         width: 1200,
         height: 630,
         alt: "A-Space - Custom Anime & Manga Fashion",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "A-Space - Personalized Anime & Manga Clothing",
     description:
       "Express your love for anime with custom-designed clothing. Shop now at A-Space!",
-    images: ["https://a-space.vercel.app/cartana.jpg"], // Use a relevant image
+    images: ["https://a-space.vercel.app/cartana.jpg"], 
   },
 };
 

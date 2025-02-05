@@ -116,7 +116,7 @@ export default function AboutUs() {
           </Carousel>
         </div>
 
-        {/* Call to Action */}
+  
         <div className="mt-12 flex w-full justify-center items-center">
           <div className="p-12 w-full bg-primary rounded-lg shadow-xl">
             <h4 className="text-2xl text-white font-semibold mb-4">
