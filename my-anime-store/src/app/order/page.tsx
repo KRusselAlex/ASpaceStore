@@ -3,7 +3,7 @@ import HeroSection from "@/components/home/hero/hero";
 import ProductSection from "@/components/home/product/product";
 import Navbar from "@/components/navbar/navbar";
 
-export default function Cart() {
+export default function Orders() {
   return (
     <div>
       <div
