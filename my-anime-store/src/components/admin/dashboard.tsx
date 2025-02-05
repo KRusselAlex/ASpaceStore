@@ -1,9 +1,9 @@
-import { Sidebar } from "@/components/ui/sidebar";
+import SidebarSection from "./sidebar/sidebar";
 
 export default function Dashboard() {
   return (
     <div>
-      <Sidebar />
+      <SidebarSection />
     </div>
   );
 }

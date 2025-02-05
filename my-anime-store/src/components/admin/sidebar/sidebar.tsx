@@ -1,8 +1,8 @@
 import { Home, Shirt, List, Image, Users, Settings } from "lucide-react";
 import Link from "next/link";
+// Utility to combine classNames if needed (if you have it in your project)
 
-
-const Sidebar = () => {
+export default function SidebarSection() {
   const menuItems = [
     { name: "Dashboard", href: "/admin", icon: Home },
     { name: "Products", href: "/admin/products", icon: Shirt },
@@ -13,20 +13,18 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside className="w-64 h-screen bg-gray-900 text-white p-4 flex flex-col">
-      <h2 className="text-xl font-bold mb-6">Admin Panel</h2>
-      <nav className="space-y-2">
+    <aside className="w-64 h-screen bg-neutral-800 text-neutral-100 p-6 flex flex-col space-y-4">
+      <h2 className="text-2xl font-semibold mb-6">Admin Panel</h2>
+      <nav className="space-y-4">
         {menuItems.map((item, index) => (
           <Link key={index} href={item.href}>
-            <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-800 transition">
-              <item.icon className="w-5 h-5" />
-              <span>{item.name}</span>
+            <div className="flex items-center gap-4 p-3 rounded-lg hover:bg-neutral-700 transition duration-300 ease-in-out">
+              <item.icon className="w-6 h-6 text-neutral-300" />
+              <span className="font-medium">{item.name}</span>
             </div>
           </Link>
         ))}
       </nav>
     </aside>
   );
-};
-
-export default Sidebar;
+}
