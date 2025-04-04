@@ -4,7 +4,7 @@ import CustomButton from "@/components/button/button";
 import CarouselSection from "@/components/home/newProduct/carouselProduct/carouselProduct";
 import { ChevronRight } from "lucide-react";
 
-const images = ["/pink.jpg", "/pink.jpg", "/pink.jpg"];
+const images = ["/meta.jpeg", "/l.jpeg", "/l.jpeg"];
 const content = {
   title: "Category Of Product",
   description: "Here we show our variety of accesosires.",

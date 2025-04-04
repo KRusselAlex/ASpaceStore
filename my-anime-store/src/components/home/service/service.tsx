@@ -10,30 +10,30 @@ import CardServices from "./card/card"; // Ensure correct path
 const services = [
   {
     icon: <FaTshirt size={40} />,
-    title: "Clothing Collection",
+    title: "Anime Streetwear",
     description:
-      "Discover a wide range of stylish and comfortable clothing for every occasion.",
+      "Level up your wardrobe with bold, anime-inspired street fashion designed for true fans.",
     iconColor: "text-green-500",
   },
   {
     icon: <FaStore size={40} />,
-    title: "Anime Accessories",
+    title: "Exclusive Anime Accessories",
     description:
-      "Complete your look with unique anime-themed accessories. From cosplay to casual wear!",
+      "From headbands to hoodies, express your fandom with accessories that complete your style.",
     iconColor: "text-yellow-500",
   },
   {
     icon: <FaHeadphonesAlt size={40} />,
-    title: "24/7 Customer Support",
+    title: "We’re Here for You",
     description:
-      "Our team is always ready to assist you with any queries or concerns you may have.",
+      "Got a question? Our support team is always ready to help—day or night!",
     iconColor: "text-blue-500",
   },
   {
     icon: <FaShippingFast size={40} />,
-    title: "Fast & Reliable Shipping",
+    title: "Lightning-Fast Shipping",
     description:
-      "Enjoy fast and reliable delivery to your doorstep with our trusted shipping partners.",
+      "Get your anime gear delivered quickly and securely, so you can flex your style ASAP.",
     iconColor: "text-red-500",
   },
 ];
@@ -44,14 +44,14 @@ export default function ServicesSection() {
       <div className="flex flex-col lg:flex-row gap-16 mx-auto text-center">
         <div className="lg:w-1/3  text-white text-center lg:text-left">
           <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-6">
-            A&apos;Space Services: Where Your Style Comes to Life
+            A&apos;Space: Elevate Your Streetwear with Anime Vibes
           </h2>
           <p className="text-base">
-            At A&apos;Space, we bring your creative vision to life! Whether
-            you&apos;re looking for one-of-a-kind clothing that reflects your
-            personal style or unique anime accessories that showcase your
-            fandom, we&apos;ve got you covered. Our services are designed to
-            offer you the best in customization and quality.
+            Step into a world where anime meets street fashion! At A&apos;Space,
+            we craft bold, high-quality apparel that lets you wear your fandom
+            with pride. From exclusive anime-inspired designs to urban styles
+            that stand out, our collection is made for true fans and
+            trendsetters alike.
           </p>
         </div>
 

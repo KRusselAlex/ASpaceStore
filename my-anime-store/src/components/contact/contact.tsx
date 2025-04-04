@@ -336,9 +336,12 @@ export default function ContactForm() {
            </form>
          </div>
        </div>
-       <div className="hidden lg:flex w-full ">
+       <div className="hidden lg:flex w-full relative">
+         <div className=" flex items-center w-full h-full justify-center bg-gray-700 bg-opacity-50 text-white text-lg">
+           Loading, please wait...
+         </div>
          <iframe
-           className="w-full h-full shadow-lg"
+           className="w-full h-full shadow-lg absolute"
            onLoad={handleIframeLoad}
            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093747!2d2.3764!3d6.3776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1948f98e1eaf1bdb%3A0x2ba8bffb47ed0317!2sCotonou%2C+Benin!5e0!3m2!1sen!2s!4v1612435176479!5m2!1sen!2s"
            allowFullScreen={true}

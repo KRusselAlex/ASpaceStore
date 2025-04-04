@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "A-Space - Anime & Manga Custom Clothing",
   description:
     "Discover unique, high-quality anime and manga-inspired fashion. Personalize your style with custom designs featuring your favorite characters!",
-  icons: "/logo.png",
+  icons: "/logo.svg",
   keywords: [
     "anime clothing",
     "manga fashion",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "A-Space",
     images: [
       {
-        url: "https://a-space.vercel.app/cartana.jpg", 
+        url: "https://a-space.vercel.app/meta.jpeg",
         width: 1200,
         height: 630,
         alt: "A-Space - Custom Anime & Manga Fashion",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "A-Space - Personalized Anime & Manga Clothing",
     description:
       "Express your love for anime with custom-designed clothing. Shop now at A-Space!",
-    images: ["https://a-space.vercel.app/cartana.jpg"], 
+    images: ["https://a-space.vercel.app/meta.jpg"],
   },
 };
 

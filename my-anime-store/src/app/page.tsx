@@ -12,11 +12,11 @@ export default function Home() {
     <div>
       <div
         style={{
-          backgroundImage: "url('/jinx.jpg')",
+          backgroundImage: "url('/p.jpg')",
           backgroundSize: "cover",
-          backgroundPosition: "center",
           height: "100vh",
         }}
+        className="pt-0"
       >
         <Navbar />
         <HeroSection />

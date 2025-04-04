@@ -4,8 +4,7 @@ import CustomButton from "@/components/button/button";
 import { ChevronRight } from "lucide-react";
 
 const content = {
-  title:
-    "Your Anime Adventure Starts Here: Top-Tier Accessories & Manga for Every Fan!",
+  title: "Step Into Your Anime Universe: Streetwear Meets Manga Vibes!",
 
   buttonText: "Start Now",
 };
@@ -20,7 +19,7 @@ export default function HeroSection() {
         <div className="flex justify-center">
           <CustomButton
             icon={<ChevronRight size={20} />}
-            className="bg-fourthly text-textColor hover:bg-primary hover:text-white"
+            className="bg-primary text-white hover:bg-secondary hover:text-white"
           >
             {content.buttonText}
           </CustomButton>

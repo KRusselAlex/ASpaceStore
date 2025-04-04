@@ -19,7 +19,7 @@ const products = [
     category: "Dresses",
     price: 50,
     date: "2024-01-01",
-    image: "/cartana.jpg",
+    image: "/gojo.jpeg",
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ const products = [
     category: "Anime Accessories",
     price: 10,
     date: "2024-01-05",
-    image: "/cartana.jpg",
+    image: "/gojod.jpeg",
   },
   {
     id: 3,
@@ -35,7 +35,7 @@ const products = [
     category: "Dresses",
     price: 40,
     date: "2024-02-01",
-    image: "/cartana.jpg",
+    image: "/gojod.jpeg",
   },
   {
     id: 4,
@@ -43,7 +43,7 @@ const products = [
     category: "Anime Accessories",
     price: 30,
     date: "2024-02-10",
-    image: "/cartana.jpg",
+    image: "/gojod.jpeg",
   },
   {
     id: 5,
@@ -51,7 +51,7 @@ const products = [
     category: "Anime Accessories",
     price: 30,
     date: "2024-02-10",
-    image: "/cartana.jpg",
+    image: "/gojod.jpeg",
   },
   {
     id: 6,
@@ -59,7 +59,7 @@ const products = [
     category: "Anime Accessories",
     price: 30,
     date: "2024-02-10",
-    image: "/cartana.jpg",
+    image: "/gojod.jpeg",
   },
   {
     id: 7,
@@ -67,7 +67,7 @@ const products = [
     category: "Anime Accessories",
     price: 30,
     date: "2024-02-10",
-    image: "/cartana.jpg",
+    image: "/gojo.jpeg",
   },
   {
     id: 8,
@@ -75,7 +75,7 @@ const products = [
     category: "Anime Accessories",
     price: 30,
     date: "2024-02-10",
-    image: "/cartana.jpg",
+    image: "/gojod.jpeg",
   },
   {
     id: 9,
@@ -83,9 +83,8 @@ const products = [
     category: "Anime Accessories",
     price: 30,
     date: "2024-02-10",
-    image: "/cartana.jpg",
+    image: "/gojod.jpeg",
   },
-  // Other products omitted for brevity...
 ];
 
 export default function ShopSection() {
@@ -173,18 +172,19 @@ export default function ShopSection() {
           >
             <Link
               href={process.env.NEXT_PUBLIC_BASE_URL + "/shop/" + product.id}
-              className="w-full h-52 flex justify-center items-center overflow-hidden rounded-lg"
+              className="w-full h-full flex justify-center items-center overflow-hidden rounded-lg"
             >
-              <Image
-                src={product.image}
-                alt={product.name}
-                width={220}
-                height={220}
-                className="object-cover w-full h-full"
-              />
+              <div className="w-full h-[250px] relative bg-white rounded-lg">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  className=" rounded-lg"
+                />
+              </div>
             </Link>
             <CardContent className="mt-2 text-center">
-              <h2 className=" text-lg">{product.name}</h2>
+              <h2 className="text-lg">{product.name}</h2>
               <p className="text-gray-600">${product.price}</p>
             </CardContent>
           </Card>

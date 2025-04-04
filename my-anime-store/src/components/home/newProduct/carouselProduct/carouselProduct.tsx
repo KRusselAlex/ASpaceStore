@@ -31,7 +31,7 @@ export default function CarouselSection({
   };
 
   return (
-    <div className="relative w-full h-screen flex items-center justify-center" >
+    <div className="relative w-full h-screen flex items-center justify-center">
       <Carousel
         className="absolute inset-0 w-full h-full"
         opts={{ loop: false }}
@@ -46,12 +46,9 @@ export default function CarouselSection({
             {images.map((img, i) => (
               <CarouselItem key={i} className="w-full h-full flex-shrink-0">
                 <div
-                  className="relative w-full h-full"
+                  className="relative w-full h-screen overflow-hidden bg-cover bg-center bg-no-repeat"
                   style={{
                     backgroundImage: `url(${img})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    height: "100vh",
                   }}
                 ></div>
               </CarouselItem>

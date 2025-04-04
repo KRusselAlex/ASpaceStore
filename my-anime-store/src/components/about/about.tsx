@@ -42,11 +42,11 @@ export default function AboutUs() {
           {/* Left Column: Image and Text */}
           <div className="text-center md:text-left">
             <Image
-              src="/cartana.jpg"
+              src="/l.jpeg"
               alt="Anime Style Dresses"
               width={500}
               height={300}
-              className="rounded-lg w-full shadow-lg mb-6 h-96"
+              className="rounded-lg w-full  shadow-lg mb-6 h-96"
             />
             <p className="text-lg text-gray-700 mb-6">
               A&apos;Space D blends the world of fashion with anime culture. We
@@ -116,7 +116,6 @@ export default function AboutUs() {
           </Carousel>
         </div>
 
-  
         <div className="mt-12 flex w-full justify-center items-center">
           <div className="p-12 w-full bg-primary rounded-lg shadow-xl">
             <h4 className="text-2xl text-white font-semibold mb-4">

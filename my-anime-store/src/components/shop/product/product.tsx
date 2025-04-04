@@ -13,7 +13,7 @@ const product = {
   price: 50,
   description:
     "A stylish and elegant dress perfect for any occasion. Made from high-quality fabric for a comfortable fit.",
-  images: ["/cartana.jpg", "/jinx.jpg", "/cartana.jpg"],
+  images: ["/gojod.jpeg", "/gojod.jpeg", "/gojod.jpeg"],
 };
 
 const relatedProducts = [
@@ -22,21 +22,21 @@ const relatedProducts = [
     name: "Summer Dress",
     category: "Dresses",
     price: 40,
-    image: "/cartana.jpg",
+    image: "/gojod.jpeg",
   },
   {
     id: 3,
     name: "Floral Dress",
     category: "Dresses",
     price: 45,
-    image: "/cartana.jpg",
+    image: "/gojod.jpeg",
   },
   {
     id: 4,
     name: "Evening Dress",
     category: "Dresses",
     price: 60,
-    image: "/cartana.jpg",
+    image: "/gojod.jpeg",
   },
 ];
 
@@ -82,7 +82,7 @@ export default function ProductView({ productId }: ProductViewProps) {
               alt={product.name}
               width={400}
               height={400}
-              className="object-cover w-full h-full"
+              className=" w-full h-full"
               onClick={() => openModal(selectedImage)}
             />
           </div>
@@ -163,7 +163,7 @@ export default function ProductView({ productId }: ProductViewProps) {
                   alt={product.name}
                   width={220}
                   height={220}
-                  className="object-cover w-full h-full"
+                  className=" w-full h-full"
                 />
               </Link>
               <CardContent className="mt-2 text-center">
@@ -189,7 +189,7 @@ export default function ProductView({ productId }: ProductViewProps) {
               alt={product.name}
               width={800}
               height={800}
-              className="object-contain max-w-full max-h-[90vh]"
+              className="object-contain w-full max-h-[90vh]"
             />
           </div>
         </div>

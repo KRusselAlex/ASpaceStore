@@ -12,27 +12,27 @@ import DressCard from "@/components/card/card"; // Import the DressCard componen
 
 const dresses = [
   {
-    imageUrl: "/cartana.jpg",
+    imageUrl: "/o.jpeg",
     title: "Elegant Evening Gown",
     price: "$199.99",
   },
   {
-    imageUrl: "/anim.jpg",
+    imageUrl: "/p.jpeg",
     title: "Elegant Evening Gown",
     price: "$199.99",
   },
   {
-    imageUrl: "/cartana.jpg",
+    imageUrl: "/o.jpeg",
     title: "Elegant Evening Gown",
     price: "$199.99",
   },
   {
-    imageUrl: "/anim.jpg",
+    imageUrl: "/p.jpeg",
     title: "Summer Floral Dress",
     price: "$89.99",
   },
   {
-    imageUrl: "/cartana.jpg",
+    imageUrl: "/o.jpeg",
     title: "Classic Black Dress",
     price: "$129.99",
   },
