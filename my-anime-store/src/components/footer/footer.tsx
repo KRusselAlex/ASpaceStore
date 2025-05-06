@@ -89,7 +89,7 @@ export default function Footer() {
             <SiTiktok size={25} />
           </Link>
         </div>
-        <div className="mt-5 text-center">
+        <div className="mt-5 text-center  text-sm ">
           © Copyright {currentDate}. All Rights Reserved K-RUSSEL.
         </div>
       </div>
